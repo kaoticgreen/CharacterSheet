@@ -114,6 +114,49 @@
         .growth-table tr:nth-child(even) {
             background-color: #fdf5e6;
         }
+        .dice-container {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .die {
+            width: 60px;
+            height: 60px;
+            background-color: #fff;
+            border: 2px solid #4a2c2a;
+            border-radius: 8px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            padding: 5px;
+        }
+        .pip {
+            width: 12px;
+            height: 12px;
+            background-color: #4a2c2a;
+            border-radius: 50%;
+            align-self: center;
+            justify-self: center;
+        }
+        .roll-button {
+            font-family: 'IM Fell English SC', serif;
+            background-color: #8b4513;
+            color: #fdf5e6;
+            padding: 0.5rem 1.5rem;
+            border: 2px solid #4a2c2a;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.25rem;
+            transition: all 0.2s;
+        }
+        .roll-button:hover {
+            background-color: #a0522d;
+        }
+        #roll-result {
+            min-height: 50px;
+        }
     </style>
 </head>
 <body>
@@ -281,6 +324,83 @@
                 </table>
             </div>
         </div>
+        
+        <!-- Dice Roller -->
+        <div class="col-span-1 md:col-span-2">
+            <div class="section-title">Roll for Initiative</div>
+            <div class="info-block text-center">
+                <div class="dice-container" id="dice-box">
+                    <div class="die" id="die-1"></div>
+                    <div class="die" id="die-2"></div>
+                </div>
+                <p class="mb-4 text-xl" id="roll-result"></p>
+                <button class="roll-button" onclick="rollDice()">Roll Dice</button>
+            </div>
+        </div>
+
     </div>
+
+    <script>
+        const die1 = document.getElementById('die-1');
+        const die2 = document.getElementById('die-2');
+        const rollResult = document.getElementById('roll-result');
+
+        const legendaryFacts = {
+            2: "A critical success! The guilds of Epic and DigiPen recognized him as the first of his kind, a rare multiclass of Scribe and Technomancer.",
+            3: "He scribed the 'Tome of Fortnite Workflow,' a legendary artifact that guides vast armies of creators in their collaborative quests.",
+            4: "He single-handedly chronicled the epic 'Seeds of Change,' a ten-scroll saga of his own creation.",
+            5: "In his youth, he forged the 'Chronicles of Relic,' a world with a history spanning five millennia.",
+            6: "As the Keeper of the First Lore for the MOBA 'Paragon,' he shaped the very origin stories of its legendary heroes.",
+            7: "As a Guild Master at Epic, he led the charge on over 100 successful campaigns and adventures within the realm of Fortnite.",
+            8: "He wove a powerful narrative enchantment, the 'March Through Time,' an experience that moved the hearts of millions.",
+            9: "He served as a diplomat and loremaster, successfully forging narrative alliances with the powerful kingdoms of LEGO, The Walking Dead, and TMNT.",
+            10: "He penned the 'Grimoire of the First Person,' a foundational text teaching the arcane arts of C++ to aspiring adventurers.",
+            11: "As a Master Artificer, he managed the creation of powerful artifacts, writing custom incantations (HLSL shaders) and maintaining the magical energies of rendering.",
+            12: "A critical success! He performed a grand ritual of teaching, using the power of story to make the new arcane language of 'Verse' understood by millions."
+        };
+
+        const pipLayouts = {
+            1: [[1, 1]],
+            2: [[0, 2], [2, 0]],
+            3: [[0, 2], [1, 1], [2, 0]],
+            4: [[0, 0], [0, 2], [2, 0], [2, 2]],
+            5: [[0, 0], [0, 2], [1, 1], [2, 0], [2, 2]],
+            6: [[0, 0], [0, 2], [1, 0], [1, 2], [2, 0], [2, 2]]
+        };
+
+        function createPips(dieElement, value) {
+            dieElement.innerHTML = '';
+            const layout = pipLayouts[value];
+            if (layout) {
+                layout.forEach(pos => {
+                    const pip = document.createElement('div');
+                    pip.className = 'pip';
+                    pip.style.gridRowStart = pos[0] + 1;
+                    pip.style.gridColumnStart = pos[1] + 1;
+                    dieElement.appendChild(pip);
+                });
+            }
+        }
+
+        function rollDice() {
+            rollResult.textContent = 'Rolling...';
+            die1.style.transform = `rotate(${Math.random() * 360}deg)`;
+            die2.style.transform = `rotate(${Math.random() * 360}deg)`;
+            
+            setTimeout(() => {
+                const val1 = Math.floor(Math.random() * 6) + 1;
+                const val2 = Math.floor(Math.random() * 6) + 1;
+                const total = val1 + val2;
+                
+                createPips(die1, val1);
+                createPips(die2, val2);
+
+                rollResult.textContent = legendaryFacts[total];
+            }, 500);
+        }
+
+        // Initial roll
+        rollDice();
+    </script>
 </body>
 </html>
