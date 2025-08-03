@@ -16,38 +16,34 @@
         }
         .container {
             max-width: 900px;
-            margin: 2rem auto;
+            margin: 1rem auto;
             border: 4px double #8b4513;
             background-color: #faf0e6;
-            padding: 1.5rem;
+            padding: 1rem;
             box-shadow: 0 0 15px rgba(0,0,0,0.5);
         }
         .header-main {
             font-family: 'IM Fell English SC', serif;
             text-align: center;
-            font-size: 2.5rem;
             border-bottom: 2px solid #8b4513;
             padding-bottom: 0.5rem;
             margin-bottom: 1rem;
         }
         .stat-box {
             border: 2px solid #8b4513;
-            padding: 0.75rem;
+            padding: 0.5rem;
             text-align: center;
             background-color: #fdf5e6;
             border-radius: 8px;
         }
         .stat-box .value {
-            font-size: 2.5rem;
             font-weight: bold;
             font-family: 'IM Fell English SC', serif;
         }
         .stat-box .modifier {
-            font-size: 1.25rem;
             font-weight: bold;
         }
         .stat-box .label {
-            font-size: 0.8rem; /* Adjusted font size to prevent overflow */
             text-transform: uppercase;
             font-family: 'IM Fell English SC', serif;
         }
@@ -105,12 +101,12 @@
 </head>
 <body>
     <div class="container">
-        <header class="header-main">Robert Gervais</header>
+        <header class="header-main text-3xl sm:text-4xl">Robert Gervais</header>
         
         <!-- Character Info -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
             <div class="info-block text-center"><h3>Class & Level</h3><p>Narrative Director, Level 15+</p></div>
-            <div class="info-block text-center"><h3>About</h3><p>Storyteller, Narrative Leader</p></div>
+            <div class="info-block text-center"><h3>About</h3><p>Narrative Party Leader</p></div>
             <div class="info-block text-center"><h3>Background</h3><p>Epic Games Alumnus</p></div>
         </div>
 
@@ -118,13 +114,13 @@
             <!-- Left Column: Stats & Proficiencies -->
             <div>
                 <!-- Stats -->
-                <div class="grid grid-cols-3 gap-4">
-                    <div class="stat-box"><div class="value">20</div><div class="modifier">+5</div><div class="label">Creativity</div></div>
-                    <div class="stat-box"><div class="value">19</div><div class="modifier">+4</div><div class="label">Leadership</div></div>
-                    <div class="stat-box"><div class="value">18</div><div class="modifier">+4</div><div class="label">Technical Skill</div></div>
-                    <div class="stat-box"><div class="value">17</div><div class="modifier">+3</div><div class="label">Production</div></div>
-                    <div class="stat-box"><div class="value">16</div><div class="modifier">+3</div><div class="label">Collaboration</div></div>
-                    <div class="stat-box"><div class="value">15+</div><div class="modifier">+2</div><div class="label">Experience</div></div>
+                <div class="grid grid-cols-3 gap-2 sm:gap-4">
+                    <div class="stat-box"><div class="value text-2xl sm:text-4xl">20</div><div class="modifier text-lg sm:text-xl">+5</div><div class="label text-[10px] sm:text-xs">Creativity</div></div>
+                    <div class="stat-box"><div class="value text-2xl sm:text-4xl">19</div><div class="modifier text-lg sm:text-xl">+4</div><div class="label text-[10px] sm:text-xs">Leadership</div></div>
+                    <div class="stat-box"><div class="value text-2xl sm:text-4xl">18</div><div class="modifier text-lg sm:text-xl">+4</div><div class="label text-[10px] sm:text-xs">Technical Skill</div></div>
+                    <div class="stat-box"><div class="value text-2xl sm:text-4xl">17</div><div class="modifier text-lg sm:text-xl">+3</div><div class="label text-[10px] sm:text-xs">Production</div></div>
+                    <div class="stat-box"><div class="value text-2xl sm:text-4xl">16</div><div class="modifier text-lg sm:text-xl">+4</div><div class="label text-[10px] sm:text-xs">Collaboration</div></div>
+                    <div class="stat-box"><div class="value text-2xl sm:text-4xl">15+</div><div class="modifier text-lg sm:text-xl">+2</div><div class="label text-[10px] sm:text-xs">Experience</div></div>
                 </div>
 
                 <!-- Proficiencies -->
@@ -149,6 +145,9 @@
                         <li>Scrolls of Transmedia Storytelling (Versatile)</li>
                         <li>Amulet of Team Leadership (Grants Morale Boost)</li>
                         <li>Whitepaper of Collaboration (+3 to Production)</li>
+                        <li>Lens of Systems Thinking (Reveals underlying architecture)</li>
+                        <li>Whetstone of World-Building (Sharpens lore and character arcs)</li>
+                        <li>Amulet of Empathy (Grants insight into player experience)</li>
                     </ul>
                 </div>
             </div>
@@ -174,7 +173,7 @@
                 </div>
                 <div class="info-block">
                     <h3>Scroll of Scribing</h3>
-                    <p>Authored a 10-issue <a href="https://www.amazon.com/dp/B08MYWZG7W">graphic novel series</a> and numerous <a href="https://www.revertingcastles.com/">technical articles</a> on the art of narrative design and engineering.</p>
+                    <p>Authored a 10-issue <a href="https://www.amazon.com/dp/B08MYWZG7W">graphic novel series</a> and numerous technical articles on the art of narrative design and engineering.</p>
                 </div>
                 <div class="info-block">
                     <h3>Technomancy</h3>
@@ -184,6 +183,30 @@
                     <h3>Storytelling for All</h3>
                     <p>Led narrative for impactful experiences like the award-winning <strong>March Through Time (MLK)</strong> and taught complex topics like the <strong>Verse</strong> programming language through engaging stories.</p>
                 </div>
+            </div>
+        </div>
+
+        <!-- Tomes of Knowledge -->
+        <div class="col-span-1 md:col-span-2">
+            <div class="section-title">Tomes of Knowledge</div>
+            <div class="info-block">
+                <ul>
+                    <li>
+                        <span class="font-bold"><a href="https://www.unrealengine.com/en-US/blog/workflow-on-fortnite-collaboration-on-large-teams-with-unrealgamesync">Whitepaper on Fortnite Collaboration</a>:</span> A legendary tome detailing the strategies for enabling hundreds of creators to collaborate on a single, massive world.
+                    </li>
+                    <li>
+                        <span class="font-bold"><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/first-person-shooter-tutorial-in-unreal-engine">First Person Shooter in C++ Tutorial</a>:</span> A foundational scroll teaching the arcane arts of C++ to build a game from scratch.
+                    </li>
+                    <li>
+                        <span class="font-bold"><a href="https://www.revertingcastles.com/2024/08/24/narrative-wordless-cutscenes-the-ukiyo-e-way/">Scroll of Wordless Narrative</a>:</span> A treatise on the art of telling a story without words, using the ancient Ukiyo-e style.
+                    </li>
+                     <li>
+                        <span class="font-bold"><a href="https://www.revertingcastles.com/2024/08/24/engineering-how-player-input-generates-a-game-intensity-response/">Tome of Game Feel</a>:</span> A codex detailing the technomancy of using C++ and fuzzy logic to create visceral "game feel" from player input.
+                    </li>
+                     <li>
+                        <span class="font-bold"><a href="https://www.revertingcastles.com/2023/02/12/engineering-how-a-calculator-enables-gameplay/">The Architect's Grimoire</a>:</span> A scroll explaining the foundational magic of a custom C++ calculator that empowers other narrative and gameplay systems.
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
